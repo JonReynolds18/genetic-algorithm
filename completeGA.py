@@ -3,37 +3,6 @@ import numpy as np
 import math
 import matplotlib.pyplot as plt
 
-# NOTE to users - You  shouldn't need to understand or change this script simply 
-# call the myGA function and provide the required inputs and tweak the parameters described below:
-
-# fitness_info - pass a list, the first object in the list is the name of the fitness
-#                function method, the second is optional to pass any additional data 
-#                required to calculate the fitness
-# number_of_vars - simply an integer value representing the number of decision variables in your problem
-# lower_bounds - a numpy array with length equal to the number of variables, each value
-#                within the array provides a lower bound for each specific decision variable
-# upper_bounds - a numpy array with length equal to the number of variables, each value
-#                within the array provides an upper bound for each specific decision variable
-# population_size - (optional, default=100) the number of individuals in each population
-# number_of_generations - (optional, default=1000) the maximum number of generations until the optimisation stops
-# crossover_fraction - (optional, default=0.8) the fraction of the popoulation that is selected to go through crossover
-# elite_fraction - (optional, default=0.05) the fraction of the population that is designated elite 
-#                  (i.e. the best individuals directly copied into the next gneeration)
-#                  NOTE - mutation_fraction = 1 - crossover_fraction - elite_fraction
-# decimal_places - (optional, default=2) number of decimal places each dicision variable can take, 
-#                  this is currently a catch all and not configurable to specific decision variables, 
-#                  use a custom creation function to do this
-# mutation_rate - (optional, default=0.1) the liklihood a decision variable in a mutation child
-#                 can mutate to a random feasible number 
-# low_diversity - (optional, default=0) the threashold for popoulation diversity to adaptively increase
-#                 mutation rates. I suggest keeping this low for the first attempt, look at the diversity
-#                 output, see what number it is converging at and adjust this parameter accordingly 
-#                 low diversity means the entire population is very similar, the default 0 will never be reached
-#                 so by default there is no adaptive mutation
-# plotting - (optional, default=False) allows you to plot fitness vs generation to assess convergence, severly
-#            slows down the optimisation so I suggest using it initially to check everything is working and then turn it off
-
-
 # This is the macro-level main function that controls the entire GA procedure
 def myGA(fitness_info, number_of_vars, lower_bounds, upper_bounds, population_size = 100,
          number_of_generations = 1000, crossover_fraction = 0.8, elite_fraction = 0.05, decimal_places = 2,
