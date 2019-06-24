@@ -1,24 +1,12 @@
 import numpy as np
 import math
 
+# In this simple optimisation, the algorithm aims to produce the target matrix which is [0,1,2,3,4... n] where n is the number of decision variables. The fitness of each solution (to be minimised) is the sum of the absolute error between target matrix and the individual. The absolute optimal is therefore 0.
+
 def my_fitness(individual):
     
     fitness = 0
     for i in range(0, np.shape(individual)[0]):
         fitness = fitness + math.fabs(individual[i] - i)
-    
-    return fitness
-
-def beale_function(individual):
-    x = individual[0]
-    y = individual[1]
-    
-    fitness = (1.5 -x + x*y)**2 + (2.25 - x + x*y**2)**2 + (2.625 - x + x*y**3)**2
-    return fitness
-
-def booth_function(individual):
-    x = individual[0]
-    y = individual[1]
-    fitness = (x + 2*y - 7)**2 + (2*x + y - 5)**2
     
     return fitness
