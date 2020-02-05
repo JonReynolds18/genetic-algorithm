@@ -8,7 +8,7 @@ def myGA(fitness_info, number_of_vars, lower_bounds, upper_bounds, population_si
          number_of_generations = 1000, crossover_fraction = 0.8, elite_fraction = 0.05, decimal_places = 2,
          mutation_rate = 0.1, low_diversity = 0, plotting=False):
 
-    if plotting == True:
+    if plotting:
         plt.ion()
         fig = plt.figure()
         plt.xlabel('Generation')
@@ -148,7 +148,7 @@ def elitism(population, population_fitness, elite_fraction):
 
 def scattered_crossover(crossover_parents):
     crossover_children = np.zeros(crossover_parents.shape)
-    
+
     for i in range(0,math.ceil(crossover_children.shape[0]/2)):
         #Create random binary vector of length = number of vars
         scattered_vector = np.random.randint(0,2,crossover_children.shape[1])
